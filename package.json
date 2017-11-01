@@ -1,0 +1,28 @@
+{
+  "name": "videoly",
+  "version": "1.0.0",
+  "description": "Test task for videoly company",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tormozz48/videoly.git"
+  },
+  "keywords": [
+    "videoly",
+    "test",
+    "task",
+    "databes",
+    "populate",
+    "featch",
+    "sql"
+  ],
+  "author": "andrey.kuznetsov48@yandex.ru",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tormozz48/videoly/issues"
+  },
+  "homepage": "https://github.com/tormozz48/videoly#readme"
+}
