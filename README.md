@@ -35,7 +35,7 @@ And append any valid random path to it so that you get massive amount of valid r
 Please write SQL queries that prove that you populated the database according to the requirements. How many unique products were visited in June? Please write SQL query for that.
 Share the queries via GitHub.
 
-####Fetch data
+#### Fetch data
 
 Now you have almost real data about product page visits and clicks. Let's calculate something useful. Please write JS script that calculates the following:
 Let's define a "conversion" as a unique combination of `product_id` and date for the given shop (one shop means hostnames like `www.shop.com` and `shop.com`).
