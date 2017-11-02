@@ -14,11 +14,11 @@ module.exports = (db) => {
             allowNull: false
         },
         productId: {
-            type: Sequelize.INTEGER,
+            type: Sequelize.STRING,
             field: 'product_id'
         },
         visitorId: {
-            type: Sequelize.INTEGER,
+            type: Sequelize.STRING,
             field: 'visitor_id'
         },
         browser: {

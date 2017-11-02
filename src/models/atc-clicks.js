@@ -19,7 +19,7 @@ module.exports = (db, options = {}) => {
             }
         },
         clickId: {
-            type: Sequelize.INTEGER,
+            type: Sequelize.STRING,
             field: 'click_id'
         },
         localtime: {
