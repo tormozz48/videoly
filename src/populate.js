@@ -95,7 +95,6 @@ async function populate(options, PageViews, AtcClicks) {
             terminalOverwrite(progressBar.update(i, options.rows));
         }
     }
-
 }
 
 async function createTable(model) {
