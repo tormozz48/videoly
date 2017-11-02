@@ -1,6 +1,52 @@
 # videoly
 videoly test task
 
+## Usage
+
+* clone repo: `git clone https://github.com/tormozz48/videoly.git`
+* move to project folder: `cd videoly`
+* install npm dependencies: `npm install`
+
+Run database population command:
+```bash
+node bin/videoly populate -dbName {your database name}
+```
+
+Possible options are:
+
+```bash
+Usage:
+  videoly populate [OPTIONS] [ARGS]
+
+
+Options:
+  -h, --help : Help
+  -dbName DBNAME, --dbName=DBNAME : database name (required)
+  -dbUser USER, --dbUser=USER : database user name
+  -dbPassword PASSWORD, --dbPassword=PASSWORD : database user password
+  -dbHost HOST, --dbHost=HOST : database host
+  -rows ROWS, --rows=ROWS : number of rows to populate
+  -products PRODUCTS, --products=PRODUCTS : number of unique products
+  -visitors VISITORS, --visitors=VISITORS : number of unique visitors
+```
+
+* Default user is `postgress` (password is omitted).
+* Default host is `localhost`
+* Number of rows is set to 1000000
+* Number of unique products is calculated as 0.2 of rows number
+* Number of unique visitors is calculated as 0.7 of rows number
+
+#### Solution for `SQL` task
+
+Corresponded SQL query is [here](./unique-products.sql)
+
+```sql
+SELECT COUNT(DISTINCT product_id) as unique_visited_products
+	FROM pageviews
+	WHERE time BETWEEN '2017-06-01' AND '2017-07-01'
+	AND EXISTS(SELECT NULL FROM atc_clicks WHERE pageviews.id = atc_clicks.impression_id)
+```
+
 ## Test exercise for the backend developer
 
 Imagine you have a database with two tables `A` ("pageviews") and `B` ("atc_clicks"), each table has about 1M of rows in it and any row in `A` may have zero or many related rows in `B`.
