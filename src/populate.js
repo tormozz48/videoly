@@ -45,11 +45,6 @@ module.exports = async function(options = {}) {
     await createTable(PageViews);
     await createTable(AtcClicks);
 
-    await populate(options, PageViews, AtcClicks);
-    await db.close();
-};
-
-async function populate(options, PageViews, AtcClicks) {
     const visitors = utils.idGenerator(options.visitors, 15);
     const products = utils.idGenerator(options.products, 10);
 
@@ -58,8 +53,7 @@ async function populate(options, PageViews, AtcClicks) {
     let pageViews = [];
     let atcClicks = [];
 
-    const Progress = clui.Progress;
-    const progressBar = new Progress(100);
+    const progressBar = new clui.Progress(100);
 
     for(let i=1; i <= options.rows; i++) {
         const pageViewDate = dateGenerator.getRandomDate();
@@ -95,7 +89,9 @@ async function populate(options, PageViews, AtcClicks) {
             terminalOverwrite(progressBar.update(i, options.rows));
         }
     }
-}
+
+    await db.close();
+};
 
 async function createTable(model) {
     try {

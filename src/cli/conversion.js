@@ -1,10 +1,10 @@
 'use strict';
 
-const populate = require('../populate');
+const conversion = require('../conversion');
 
 module.exports = function() {
     this
-        .title('populate').helpful()
+        .title('conversion').helpful()
         .opt()
         .name('dbName').title('database name')
         .short('dbName').long('dbName')
@@ -22,17 +22,5 @@ module.exports = function() {
         .name('host').title('database host')
         .short('dbHost').long('dbHost')
         .end()
-        .opt()
-        .name('rows').title('number of rows to populate')
-        .short('rows').long('rows')
-        .end()
-        .opt()
-        .name('products').title('number of unique products')
-        .short('products').long('products')
-        .end()
-        .opt()
-        .name('visitors').title('number of unique visitors')
-        .short('visitors').long('visitors')
-        .end()
-        .act((options) => populate(options));
+        .act((options) => conversion(options));
 };

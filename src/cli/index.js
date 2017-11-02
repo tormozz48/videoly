@@ -6,4 +6,5 @@ module.exports = coa.Cmd()
     .name(process.argv[1])
     .title('videoly test task')
     .helpful()
-    .cmd().name('populate').apply(require('./populate')).end();
+    .cmd().name('populate').apply(require('./populate')).end()
+    .cmd().name('conversion').apply(require('./conversion')).end();
