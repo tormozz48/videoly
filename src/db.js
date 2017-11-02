@@ -1,7 +1,6 @@
 'use strict';
 
 const Sequelize = require('sequelize');
-const debug = require('debug')('videoly:db');
 
 module.exports = async function dbInit({dbName, user, password, host}) {
     const db = new Sequelize(dbName, user, password, {
