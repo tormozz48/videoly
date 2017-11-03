@@ -47,6 +47,37 @@ SELECT COUNT(DISTINCT product_id) as unique_visited_products
 	AND EXISTS(SELECT NULL FROM atc_clicks WHERE pageviews.id = atc_clicks.impression_id)
 ```
 
+In my case this query returns result `53336`
+
+#### Solution for "Fetch data" task
+
+Run conversion command:
+```bash
+node bin/videoly conversion -dbName {your database name}
+```
+
+Possible options are:
+```bash
+Usage:
+  videoly conversion [OPTIONS] [ARGS]
+
+Options:
+  -h, --help : Help
+  -dbName DBNAME, --dbName=DBNAME : database name (required)
+  -dbUser USER, --dbUser=USER : database user name
+  -dbPassword PASSWORD, --dbPassword=PASSWORD : database user password
+  -dbHost HOST, --dbHost=HOST : database host
+```
+
+* Default user is `postgress` (password is omitted).
+* Default host is `localhost`
+
+This script returned following data:
+```bash
+Records found: 28559' for July and "shop1.com" url pattern
+Calculated conversions amount: 28487
+```
+
 ## Test exercise for the backend developer
 
 Imagine you have a database with two tables `A` ("pageviews") and `B` ("atc_clicks"), each table has about 1M of rows in it and any row in `A` may have zero or many related rows in `B`.
