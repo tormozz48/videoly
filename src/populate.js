@@ -3,7 +3,6 @@
 const _ = require('lodash');
 const clui = require('clui');
 const randomize = require('randomatic');
-const Sequelize = require('sequelize');
 const terminalOverwrite = require('terminal-overwrite');
 const dbInit = require('./db');
 const utils = require('./utils');
@@ -25,8 +24,8 @@ module.exports = async function(options = {}) {
         rows: 1000 * 1000
     });
 
-    options.products = options.products || _.round(0.2 * options.rows)
-    options.visitors = options.visitors || _.round(0.7 * options.rows)
+    options.products = options.products || _.round(0.2 * options.rows);
+    options.visitors = options.visitors || _.round(0.7 * options.rows);
 
     console.info('start to populate database');
     console.info(`database name: "${options.dbName}"`);
@@ -55,7 +54,7 @@ module.exports = async function(options = {}) {
 
     const progressBar = new clui.Progress(100);
 
-    for(let i=1; i <= options.rows; i++) {
+    for (let i = 1; i <= options.rows; i++) {
         const pageViewDate = dateGenerator.getRandomDate();
 
         pageViews.push({
@@ -69,9 +68,9 @@ module.exports = async function(options = {}) {
         if (Math.random() > 0.5) {
             const clicksAmount = Math.round(Math.random() * 6);
 
-            for (let j=0; j<= clicksAmount; j++) {
+            for (let j = 0; j <= clicksAmount; j++) {
                 atcClicks.push({
-                    impressionId: i,
+                    impressionId: i, //It's a bad but working approach
                     clickId: randomize('0', 10),
                     localtime: new Date(pageViewDate.getTime() + 600 * 1000 * Math.random())
                 });
@@ -97,7 +96,7 @@ async function createTable(model) {
     try {
         await model.sync({force: true});
         console.info(`table "${model.getTableName()}" has been created successfully`);
-    } catch(err) {
+    } catch (err) {
         console.error('Error occur while creating table');
         console.error(err);
     }

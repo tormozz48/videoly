@@ -17,9 +17,9 @@ module.exports = async function dbInit({dbName, user, password, host}) {
 
     try {
         await db.authenticate();
-    } catch(err) {
+    } catch (err) {
         console.error('Unable to connect to the database:', err);
     }
 
     return db;
-}
+};

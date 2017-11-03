@@ -4,8 +4,6 @@ const _ = require('lodash');
 const Sequelize = require('sequelize');
 const dbInit = require('./db');
 const definePageViews = require('./models/pageviews');
-const defineAtcClicks = require('./models/atc-clicks');
-
 const Op = Sequelize.Op;
 
 module.exports = async function(options = {}) {

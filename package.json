@@ -4,7 +4,7 @@
   "description": "Test task for videoly company",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "eslint ."
   },
   "repository": {
     "type": "git",
@@ -27,7 +27,8 @@
   "homepage": "https://github.com/tormozz48/videoly#readme",
   "devDependencies": {
     "eslint": "^4.8.0",
-    "eslint-config-gemini-testing": "^2.5.0"
+    "eslint-config-gemini-testing": "^2.5.0",
+    "eslint-plugin-async-await": "0.0.0"
   },
   "dependencies": {
     "clui": "^0.3.6",
